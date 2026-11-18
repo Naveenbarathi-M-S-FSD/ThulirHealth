@@ -1,0 +1,22 @@
+{
+  "firestore": {
+    "database": "(default)",
+    "location": "asia-south1",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "auth": {
+    "providers": {
+      "anonymous": true,
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "THULIR Healthcare",
+        "supportEmail": "naveenbarathilfhss@gmail.com",
+        "authorizedRedirectUris": [
+          "https://thulir-health-8921.firebaseapp.com/__/auth/handler",
+          "http://localhost:3000"
+        ]
+      }
+    }
+  }
+}

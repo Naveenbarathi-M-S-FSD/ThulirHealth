@@ -1,0 +1,8 @@
+{
+  "name": "THULIR - Connected Healthcare Ecosystem",
+  "description": "Connected Care. Made Simple. Interactive healthcare platform uniting Patients, Doctors, and Pharmacies with health records, prescription OCR scanner, health QR, and marketplace.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

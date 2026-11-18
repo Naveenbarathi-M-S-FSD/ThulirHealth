@@ -1,0 +1,89 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    // Connection test doc
+    match /test/connection {
+      allow read: if true;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if true;
+      allow create, update: if isValidId(userId);
+      allow delete: if isValidId(userId);
+    }
+
+    // Patients collection
+    match /patients/{patientId} {
+      allow read: if true;
+      allow create, update: if isValidId(patientId);
+      allow delete: if isValidId(patientId);
+    }
+
+    // Doctors collection
+    match /doctors/{doctorId} {
+      allow read: if true;
+      allow create, update: if isValidId(doctorId);
+      allow delete: if isValidId(doctorId);
+    }
+
+    // Pharmacies collection
+    match /pharmacies/{pharmacyId} {
+      allow read: if true;
+      allow create, update: if isValidId(pharmacyId);
+      allow delete: if isValidId(pharmacyId);
+    }
+
+    // Prescriptions collection
+    match /prescriptions/{prescriptionId} {
+      allow read: if true;
+      allow create, update: if isValidId(prescriptionId);
+      allow delete: if isValidId(prescriptionId);
+    }
+
+    // Appointments collection
+    match /appointments/{appointmentId} {
+      allow read: if true;
+      allow create, update: if isValidId(appointmentId);
+      allow delete: if isValidId(appointmentId);
+    }
+
+    // Health Records collection
+    match /healthRecords/{recordId} {
+      allow read: if true;
+      allow create, update: if isValidId(recordId);
+      allow delete: if isValidId(recordId);
+    }
+
+    // Medicine Reminders collection
+    match /medicineReminders/{reminderId} {
+      allow read: if true;
+      allow create, update: if isValidId(reminderId);
+      allow delete: if isValidId(reminderId);
+    }
+
+    // Pharmacy Products collection
+    match /pharmacyProducts/{productId} {
+      allow read: if true;
+      allow create, update: if isValidId(productId);
+      allow delete: if isValidId(productId);
+    }
+
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read: if true;
+      allow create, update: if isValidId(notificationId);
+      allow delete: if isValidId(notificationId);
+    }
+
+    // Catch-all deny for anything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
